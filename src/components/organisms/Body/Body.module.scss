@@ -1,0 +1,7 @@
+.body {
+  box-sizing: border-box;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 50ch minmax(20vw, 50vw) 120px;
+  gap: 2rem;
+}

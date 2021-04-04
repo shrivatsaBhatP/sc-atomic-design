@@ -5,7 +5,7 @@ export type InputProps = {
   id?: string;
   name?: string;
   placeholder?: string;
-  type?: 'text' | 'number' | 'email' | 'password';
+  type: 'text' | 'number' | 'email' | 'password';
   value?: string | number | readonly string[];
   onClick?: React.MouseEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
