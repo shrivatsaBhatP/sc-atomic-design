@@ -5,6 +5,7 @@ import StepBody from '../StepBody';
 import StepHeader from '../StepHeader';
 import classes from './styles.module.scss';
 import { stepState, Steps } from './defaultValue';
+import StepOne from '../StepOne';
 
 const UserBlock = () => {
   const [step, setStep] = useState<number>(1);
@@ -19,6 +20,8 @@ const UserBlock = () => {
     return step === 3 ? Steps.STEP3 : step === 2 ? Steps.STEP2 : Steps.STEP1;
   }
 
+  const onChange = () => {};
+
   return (
     <Card borderRadius={'4px'} color={'#3d3d3d'}>
       <div className={classes.contaienr}>
@@ -27,12 +30,19 @@ const UserBlock = () => {
           stepNumber={stepState[Step`${step}`]['stepNumber']}
           description={stepState[Step`${step}`].description('', {})}
         />
-        <StepBody
-          onChange={() => {}}
+        {/* <StepBody
+          onChange={onChange}
           inputOptions={stepState[Step`${step}`].body.option}
           inputType={stepState[Step`${step}`].body.inputType}
-          selectedOption={null}
+          selectedOption={stepState.shape}
+          value={stepState.value}
+        /> */}
+        <StepOne
+          onChange={onChange}
+          inputOptions={stepState[Step`${step}`].body.option}
+          selectedOption={stepState.shape}
         />
+
         <Pagination
           label={stepState[Step`${step}`]['submitLabel']}
           onNext={handleOnNext}
