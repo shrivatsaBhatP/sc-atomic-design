@@ -1,36 +1,26 @@
 import React from 'react';
-import classes from './styles.module.scss';
+import styles from './Text.module.scss';
+import { TextProps } from '../../../common/interface';
 
-export type TextProps = {
-  children: React.ReactNode;
-  type: 'heading' | 'paragraph' | 'sub-heading' | 'label';
-  color?: string;
-  size?: string;
-  htmlfor?: string;
-  weight?: number;
-  dangerouslySetInnerHTML?: {
-    __html: string;
-  };
-};
+const Text: React.FC<TextProps> = ({
+  type = 'default',
 
-export type TextRefType = HTMLParagraphElement;
-
-const Text = React.forwardRef<TextRefType, TextProps>((props, ref) => {
-  const style: React.CSSProperties = {
+  children,
+  ...props
+}) => {
+  const style = {
     color: props.color,
     fontSize: props.size,
     fontWeight: props.weight,
   };
 
+  const className = [styles.Text, styles[type]].join(' ');
+
   return (
-    <p
-      {...props}
-      className={[classes.text, classes[props.type]].join(' ')}
-      style={style}
-      ref={ref}>
-      {props.children}
+    <p className={className} style={style} {...props}>
+      {children}
     </p>
   );
-});
+};
 
 export default Text;

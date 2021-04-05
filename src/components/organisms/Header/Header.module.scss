@@ -1,0 +1,23 @@
+.HeaderContainer {
+  box-sizing: border-box;
+  height: 10vh;
+  border: 2px solid black;
+  margin: 6px 1em;
+
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+
+  position: relative;
+  overflow: hidden;
+  img {
+    position: absolute;
+    right: 0;
+    height: 10vh;
+    width: 60vw;
+    z-index: -1;
+  }
+  @media (max-width: 720px) {
+    justify-content: center;
+  }
+}

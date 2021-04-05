@@ -1,0 +1,12 @@
+.App {
+  display: grid;
+  grid-template-rows: 16vh 32vh;
+
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 120px;
+    grid-gap: 3em;
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+}

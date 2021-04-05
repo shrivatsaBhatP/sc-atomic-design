@@ -1,12 +1,16 @@
 import React from 'react';
-import Card from '../../atoms/Card';
 import Text from '../../atoms/Text';
+import styles from './Header.module.scss';
+import Image from '../../atoms/Image';
 
-const Header = () => {
+import src from '../../../assets/headerImage.png';
+
+const Header: React.FC = () => {
   return (
-    <Card>
+    <div className={styles.HeaderContainer}>
+      <Image src={src} alt="header image" />
       <Text type="heading">Shape Calculator</Text>
-    </Card>
+    </div>
   );
 };
 

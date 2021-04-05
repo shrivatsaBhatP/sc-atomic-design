@@ -1,20 +1,21 @@
 import React from 'react';
-import classes from './styles.module.scss';
 
-export type RadioButtonProps = {
-  id?: string;
-  name?: string;
-  value?: string | number | readonly string[];
-  checked: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+import styles from './RadioButton.module.scss';
+
+import { RadioButtonProps } from '../../../common/interface';
+
+const RadioButton: React.FC<RadioButtonProps> = ({
+  label,
+  id,
+  isChecked,
+  ...props
+}) => {
+  return (
+    <div className={styles.RadioButtonContainer}>
+      <input type="radio" id={id} checked={isChecked} {...props} />
+      <label htmlFor={id}>{label}</label>
+    </div>
+  );
 };
-
-export type RadioButtonRefType = HTMLInputElement;
-
-const RadioButton = React.forwardRef<RadioButtonRefType, RadioButtonProps>(
-  (props, ref) => {
-    return <input type="radio" {...props} ref={ref} />;
-  }
-);
 
 export default RadioButton;
