@@ -6,7 +6,7 @@ export type ButtonProps = {
   type: 'submit' | 'button' | 'reset';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   buttonSize?: 'small' | 'medium' | 'large';
-  buttonTheme?: 'default' | 'positive' | 'danger';
+  buttonTheme?: 'default' | 'primary' | 'secondary';
   buttonStyle?: string;
   backgroundColor?: string;
 };

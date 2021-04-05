@@ -25,22 +25,25 @@ const UserInput: React.FC<UserInputProps> = ({
   onChange,
   ...props
 }) => {
-  const element =
-    type === 'radio' ? (
-      <>
-        <RadioButton id={id} onChange={onChange} checked={isChecked} />
-        <Text type="label" htmlfor={id}>
-          {label}
-        </Text>
-      </>
-    ) : (
-      <>
-        <Input type="text" {...props} />
-        <Text type="label" htmlfor={id}>
-          {label}
-        </Text>
-      </>
-    );
+  let element: JSX.Element | null = null;
+
+  type === 'radio'
+    ? (element = (
+        <>
+          <RadioButton id={id} onChange={onChange} checked={isChecked} />
+          <Text type="label" htmlfor={id}>
+            {label}
+          </Text>
+        </>
+      ))
+    : (element = (
+        <>
+          <Input type="text" {...props} />
+          <Text type="label" htmlfor={id}>
+            {label}
+          </Text>
+        </>
+      ));
 
   return <div className={classes.userinput}>{element}</div>;
 };
