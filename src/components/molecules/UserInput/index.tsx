@@ -5,11 +5,12 @@ import Text from '../../atoms/Text';
 import classes from './styles.module.scss';
 
 export type UserInputProps = {
-  id: string;
+  id?: string;
   type: 'radio' | 'input';
   label: string;
   isChecked: boolean;
   value?: string | number | readonly string[];
+  name?: string;
   placeholder?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onClick?: React.MouseEventHandler<HTMLInputElement>;

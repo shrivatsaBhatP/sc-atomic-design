@@ -6,7 +6,19 @@ export type optionElement = {
   label: string;
 };
 
-export type optionsBody = optionElement[];
+export type innerOption = {
+  id: number;
+  label: string;
+  placeholder: string;
+};
+export type optionElement2 = {
+  rectangle: innerOption[];
+  circle: innerOption[];
+  square: innerOption[];
+  ellipse: innerOption[];
+};
+
+export type optionsBody = optionElement[] | optionElement2;
 // [
 // { id: 1; value: Shapes.RECTANGLE; label: 'Rectangle' },
 // { id: 2; value: Shapes.CIRCLE; label: 'Circle' },

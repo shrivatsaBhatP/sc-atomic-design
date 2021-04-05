@@ -20,6 +20,8 @@ export enum Shapes {
 }
 
 export const stepState = {
+  shape: Shapes.RECTANGLE,
+  value: {},
   step1: {
     id: 11,
     stepNumber: 1,
@@ -48,12 +50,18 @@ export const stepState = {
       `You have selected a <strong>${type}</strong>, please input the required variables.`,
     body: {
       inputType: 'input',
-      option: [
-        { id: 1, value: Shapes.RECTANGLE, label: 'Rectangle' },
-        { id: 2, value: Shapes.CIRCLE, label: 'Circle' },
-        { id: 3, value: Shapes.SQUARE, label: 'Square' },
-        { id: 4, value: Shapes.ELLIPSE, label: 'Ellipse' },
-      ],
+      option: {
+        rectangle: [
+          { id: 1, label: 'Length', placeholder: 'enter length' },
+          { id: 2, label: 'Width', placeholder: 'enter width' },
+        ],
+        circle: [{ id: 1, label: 'Diameter', placeholder: 'enter diameter' }],
+        square: [{ id: 1, label: 'Length', placeholder: 'enter length' }],
+        ellipse: [
+          { id: 1, label: 'Axis A', placeholder: 'enter axis a' },
+          { id: 2, label: 'Axis B', placeholder: 'enter axis b' },
+        ],
+      },
     },
   },
   step3: {
@@ -96,5 +104,12 @@ export const defaultPayload = {
 
 export const initialValue = {
   type: Shapes.RECTANGLE,
+  value: {},
+  payload: defaultPayload,
+};
+
+export const storedValue = {
+  type: Shapes.RECTANGLE,
+  value: {},
   payload: defaultPayload,
 };
